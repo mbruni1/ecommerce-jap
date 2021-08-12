@@ -57,15 +57,16 @@
 <body class="text-center">
   <div class="container p-5">
     <div style="position: relative; width:auto; top: 0;">
-      <h3>Please sign in</h3>
-      <input class="signin" type="email" placeholder="Email address" required>
-      <br>
-      <input type="password" class="signin" placeholder="Password" required>
-      <br>
-      <input type="checkbox" name="remember" value="Bike">
-      <label for="rememeber"> Remember me </label><br>
-      <button class="botton" id="botton" type="submit">Sign in</button>
-
+      <form>
+        <h3>Please sign in</h3>
+        <input class="signin" type="email" placeholder="Email address" required="true">
+        <br>
+        <input type="password" class="signin" placeholder="Password" required="true">
+         <br>
+        <input type="checkbox" name="remember" value="Bike">
+        <label for="rememeber"> Remember me </label><br>
+        <button class="botton" id="botton" type="submit" aria-required="signin">Sign in</button>
+      </form>
     </div>
 
   </div>

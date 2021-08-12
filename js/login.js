@@ -3,8 +3,12 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    document.getElementById("botton").addEventListener("click", function(e) {  
+    document.getElementById("botton").addEventListener ("click", function(e) {  
+        if document.getElementById("signin").required.true {
+
+        
     window.location.href = "./index.html"
+        }
     });
      
 
