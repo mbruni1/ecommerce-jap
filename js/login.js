@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         validarFormulario(e);
 
         function validarFormulario(evento) {
-            evento.preventDefault();
+           
             var usuario = document.getElementById('usuario').value;
             if (usuario.length == 0) {
                 alert('No has escrito nada en el usuario');
