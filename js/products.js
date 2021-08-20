@@ -1,48 +1,39 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-var categoriesArray = [];
 
-    function showCategoriesList(array) {
+document.addEventListener("DOMContentLoaded", function (e) {
+    let url = "https://japdevdep.github.io/ecommerce-api/product/all.json";
 
-        let htmlContentToAppend = "";
-        for (let i = 0; i < array.length; i++) {
-            let product = array[i];
+    fetch(url)
+        .then(response => response.json())      //como leo estos datos...guardo la respuesta en la variable response, transformo la respuesta a formato json
+        .then(data => {
+            console.log(data[0]);                        // que hare con esos datos de arriba...me guardo en data lo que me guardo el then de arriba
+            let i = 0;
+            while (i < data.length) {   //recorrer el array posicion por posicion hasta q se termina
+                let name = data[i].name;                     //creo cada variable de los datos del json q estare usando
+                let description = data[i].description;
+                let currency = data[i].currency;
+                let cost = data[i].cost;
+                let img = data[i].imgSrc;
+                //me trae el elemento que tiene ese ID abajo.
 
-            htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name + `</h4>
-                        <small class="text-muted">` + product.currency + " " + product.cost + ` </small>
-                    </div>
-                     <div><p>` + product.description + `</p></div>
-                </div>
-            </div>
-        </div>
-        `
-
-            document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-        }
-    }
-
-    //Función que se ejecuta una vez que se haya lanzado el evento de
-    //que el documento se encuentra cargado, es decir, se encuentran todos los
-    //elementos HTML presentes.
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        getJSONData(PRODUCTS_URL).then(function (resultObj) {
-            if (resultObj.status === "ok") {
-                categoriesArray = resultObj.data;
-                //Muestro las categorías ordenadas
-                showCategoriesList(categoriesArray);
+                document.getElementById("id-el-que-quieres").innerHTML += `
+                 <div class=table-row >
+                  <div class="table-data">`+ name + `</div>
+                  <div class="table-data">`+ description + `</div>
+                  <div class="table-data">`+ currency + `</div>
+                   <div class="table-data">`+ cost + `</div>
+                   <div class="table-data" class="img"><img src=`+ img + `></div>
+            
+                  </div>
+                   `
+                i = i + 1;                    //incrementamos el i para ir avanzando
             }
-        });
 
-    });
+
+
+
+        })
+});
+
+
+
+
