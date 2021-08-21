@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let url = "https://japdevdep.github.io/ecommerce-api/product/all.json";
 
     fetch(url)
-        .then(response => response.json())      //como leo estos datos...guardo la respuesta en la variable response, transformo la respuesta a formato json
-        .then(data => {
-            console.log(data[0]);                        // que hare con esos datos de arriba...me guardo en data lo que me guardo el then de arriba
+        .then(response => response.json())   //como leo estos datos...transformo la respuesta a formato json
+        .then(data => {                       // que hare con esos datos de arriba..me guardo en data lo que me guardo el then de arriba
             let i = 0;
             while (i < data.length) {   //recorrer el array posicion por posicion hasta q se termina
                 let name = data[i].name;                     //creo cada variable de los datos del json q estare usando
