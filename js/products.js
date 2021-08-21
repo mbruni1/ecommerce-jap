@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 let img = data[i].imgSrc;
                 //me trae el elemento que tiene ese ID abajo.
 
-                document.getElementById("id-el-que-quieres").innerHTML += `
+                document.getElementById("añadir").innerHTML += `
                  <div class=table-row >
                   <div class="table-data">`+ name + `</div>
                   <div class="table-data">`+ description + `</div>
